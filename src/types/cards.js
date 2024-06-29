@@ -29,6 +29,8 @@ const card = (stats = [], procs = [], handlers = []) => {
 		getStats,
 		getProcs,
 		getHandlers,
+
+		type: "card"
 	};
 };
 
@@ -308,6 +310,8 @@ const cardsManager = (initialSize = 10) => {
 		handle,
 		proc,
 		raw,
+
+		type: "deck"
 	};
 };
 
