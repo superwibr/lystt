@@ -17,7 +17,7 @@ const card = (stats = [], procs = [], handlers = []) => {
 			}
 		}
 
-		return createCardManager(clonedStatChanges, clonedProcs, clonedHandlers);
+		return card(clonedStatChanges, clonedProcs, clonedHandlers);
 	};
 
 	const getStats = () => statChanges;
