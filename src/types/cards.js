@@ -280,11 +280,13 @@ const cardsManager = (initialSize = 10) => {
 	const applyStats = (statsManager) => _applyStats(statCache, statsManager);
 
 	const handle = (name, event) => {
+		const output = [];
 		for (const [eventName, handler] of handlerCache) {
 			if (eventName === name) {
-				handler(event);
+				output.push(handler(event));
 			}
 		}
+		return output;
 	};
 
 	const proc = (name) => _proc(procCache, name);
