@@ -198,16 +198,22 @@ const _proc = (procs, name) => {
 	const procedure = procs.find(proc => proc[0] === name);
 	if (procedure) {
 		const [procName, procFunction, parameters] = procedure;
-		return {
-			run: (...extraArgs) => procFunction(parameters, ...extraArgs),
-			set: (paramName, value) => {
+		const iapi = {
+			getParam: (paramName) => {
+				const param = parameters.find(param => param[0] === paramName);
+				return param ? param[2] : undefined;
+			},
+			setParam: (paramName, value) => {
 				const param = parameters.find(param => param[0] === paramName);
 				if (param) param[2] = value;
 			},
-			get: (paramName) => {
-				const param = parameters.find(param => param[0] === paramName);
-				return param ? param[2] : undefined;
-			}
+			getParams: () => parameters,
+			getSelf: () => procedure
+		};
+
+		return {
+			run: (...extraArgs) => procFunction(iapi, extraArgs),
+			get: iapi.getParam, set: iapi.setParam
 		};
 	}
 	return null;
