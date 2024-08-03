@@ -84,7 +84,7 @@ const tilePhysical = (initialData = [[0, 0], [0, 0], 1, 0]) => {
 };
 
 // physical properties for free entities, or pods
-const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]) => {
+const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 10, 0.99, 0.1, 100, 0]) => {
 	let [position, velocity, size, friction, gravity, life, rotation] = initialData;
 	position = _validateVector3D(position);
 	velocity = _validateVector3D(velocity);
