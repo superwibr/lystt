@@ -52,8 +52,6 @@ const tilePhysical = (initialData = [[0, 0], [0, 0], 1, 0]) => {
 	const getRotation = () => rotation;
 	const setRotation = (newRotation) => { rotation = _snapRotation(newRotation); };
 
-	const raw = () => [position, velocity, size, rotation];
-
 	const applyVelocity = () => {
 		position[0] += velocity[0];
 		position[1] += velocity[1];
@@ -68,23 +66,18 @@ const tilePhysical = (initialData = [[0, 0], [0, 0], 1, 0]) => {
 		applyFriction();
 	};
 
+	const raw = () => [position, velocity, size, rotation];
+
 	return {
-		setPos,
-		getPos,
-		setPosObject,
-		getPosObject,
-		setVel,
-		getVel,
-		setVelObject,
-		getVelObject,
-		getSize,
-		setSize,
-		getRotation,
-		setRotation,
-		raw,
-		applyVelocity,
-		applyFriction,
+		setPos, getPos,
+		setPosObject, getPosObject,
+		setVel, getVel,
+		setVelObject, getVelObject,
+		setSize, getSize,
+		setRotation, getRotation,
+		applyVelocity, applyFriction,
 		tick,
+		raw,
 
 		type: "physical:tile"
 	};
@@ -119,8 +112,6 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]
 	const getRotation = () => rotation;
 	const setRotation = (newRotation) => { rotation = _rectifyRotation(newRotation); };
 
-	const raw = () => [position, velocity, size, friction, gravity, life, rotation];
-
 	const applyVelocity = () => {
 		position[0] += velocity[0];
 		position[1] += velocity[1];
@@ -141,28 +132,20 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]
 		applyFriction();
 	};
 
+	const raw = () => [position, velocity, size, friction, gravity, life, rotation];
+
 	return {
-		setPos,
-		getPos,
-		setPosObject,
-		getPosObject,
-		setVel,
-		getVel,
-		setVelObject,
-		getVelObject,
-		getSize,
-		setSize,
-		getFriction,
-		setFriction,
-		getGrav,
-		setGrav,
-		getRotation,
-		setRotation,
-		raw,
-		applyVelocity,
-		applyGravity,
-		applyFriction,
+		setPos, getPos,
+		setPosObject, getPosObject,
+		setVel, getVel,
+		setVelObject, getVelObject,
+		getSize, setSize,
+		getFriction, setFriction,
+		getGrav, setGrav,
+		getRotation, setRotation,
+		applyVelocity, applyGravity, applyFriction,
 		tick,
+		raw,
 
 		type: "physical:free"
 	};
