@@ -119,7 +119,7 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 10, 0.99, 0.1, 100, 0
 	};
 
 	const applyGravity = () => {
-		velocity[1] -= gravity; // Assuming gravity affects the y-axis
+		velocity[2] -= gravity; // Assuming gravity affects the z-axis
 	};
 
 	const applyFriction = () => {
