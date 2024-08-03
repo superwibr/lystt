@@ -116,9 +116,6 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]
 	const getGrav = () => gravity;
 	const setGrav = (newGravity) => { gravity = newGravity; };
 
-	const getLife = () => life;
-	const setLife = (newLife) => { life = newLife; };
-
 	const getRotation = () => rotation;
 	const setRotation = (newRotation) => { rotation = _rectifyRotation(newRotation); };
 
@@ -139,8 +136,6 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]
 	};
 
 	const tick = () => {
-		if (life <= 0) return;
-		life -= 1;
 		applyGravity();
 		applyVelocity();
 		applyFriction();
@@ -161,8 +156,6 @@ const freePhysical = (initialData = [[0, 0, 0], [0, 0, 0], 1, 0.99, 0.1, 100, 0]
 		setFriction,
 		getGrav,
 		setGrav,
-		getLife,
-		setLife,
 		getRotation,
 		setRotation,
 		raw,
