@@ -5,3 +5,4 @@ export * from "./events.js";
 export * from "./entity.js";
 export * from "./dimension.js";
 export * from "./map.js";
+export * from "./tickloop.js";

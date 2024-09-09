@@ -1,8 +1,10 @@
 import { eventManager } from "./events.js";
 import { mapManager } from "./map.js";
+import { tickLoopManager } from "./tickloop.js";
 
 const dimManager = (initialEntities = []) => {
 	const map = mapManager(initialEntities);
+	const ticker = tickLoopManager();
 	const unresolved = [];
 	const events = eventManager((type, data) => unresolved.push([type, data]));
 
@@ -24,10 +26,12 @@ const dimManager = (initialEntities = []) => {
 		time++;
 	};
 
+	ticker.setUpdate(tick);
+
 	const api = {
 		...map,
 		events,
-		tick,
+		ticker,
 		queue
 	};
 
